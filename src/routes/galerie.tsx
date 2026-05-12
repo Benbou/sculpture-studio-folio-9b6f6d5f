@@ -52,15 +52,19 @@ function Galerie() {
           ))}
         </div>
 
-        <div className="grid gap-x-6 gap-y-12 pb-16 sm:grid-cols-2 md:grid-cols-3">
+        <div className="gap-x-6 pb-16 [column-fill:_balance] columns-1 sm:columns-2 md:columns-3">
           {list.map((w) => (
-            <button key={w.title} onClick={() => setActive(w)} className="group text-left">
-              <div className="overflow-hidden bg-muted" style={{ aspectRatio: "3/4" }}>
+            <button
+              key={w.title}
+              onClick={() => setActive(w)}
+              className="group mb-12 block w-full break-inside-avoid text-left"
+            >
+              <div className="overflow-hidden bg-muted">
                 <img
                   src={w.image}
                   alt={w.title}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  className="h-auto w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               </div>
               <div className="mt-3">
