@@ -1,16 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "../components/site/Layout";
 import { PageHeader } from "../components/site/PageHeader";
-import { ImagePlaceholder } from "../components/site/Placeholder";
+import portrait from "../assets/portrait/christine.jpeg";
+import signature from "../assets/portrait/signature.png";
 
 export const Route = createFileRoute("/portrait")({
   head: () => ({
     meta: [
-      { title: "Portrait — Christine Bouquet" },
+      { title: "Portrait — Christine Bouquet, sculptrice" },
       {
         name: "description",
         content:
-          "Parcours et démarche artistique de Christine Bouquet, sculptrice.",
+          "Née à Paris en 1960, Christine Bouquet vit et travaille à Bondues près de Lille. Sculptrice et fondeur d'art.",
       },
       { property: "og:title", content: "Portrait — Christine Bouquet" },
       {
@@ -25,27 +26,62 @@ export const Route = createFileRoute("/portrait")({
 function Portrait() {
   return (
     <Layout>
-      <PageHeader eyebrow="Portrait" title="L'atelier d'une vie" />
+      <PageHeader eyebrow="Portrait" title="Christine Bouquet" />
       <section className="mx-auto grid max-w-5xl gap-12 px-6 pb-16 md:grid-cols-[1fr_1.4fr] md:gap-16">
-        <ImagePlaceholder label="Portrait de l'artiste" ratio="3/4" />
+        <div>
+          <img
+            src={portrait}
+            alt="Christine Bouquet, sculptrice"
+            className="w-full object-cover"
+            style={{ aspectRatio: "1/1" }}
+          />
+          <img
+            src={signature}
+            alt="Signature de Christine Bouquet"
+            className="mt-6 h-12 w-auto opacity-80"
+          />
+        </div>
         <div className="space-y-6 font-light leading-relaxed text-foreground/90">
-          <p className="font-serif text-xl italic text-foreground md:text-2xl">
-            « Sculpter, c'est écouter ce que la matière sait déjà. »
+          <p>
+            Née en 1960 à Paris, Christine vit et travaille actuellement à
+            Bondues, près de Lille.
           </p>
           <p>
-            [Bio à compléter] Christine Bouquet vit et travaille en France.
-            Formée à [école / atelier], elle développe depuis [année] un travail
-            autour du corps, du portrait et de la mémoire.
+            Après 10 ans de formation classique en atelier à Marcq, puis à
+            Tournai en Belgique, elle associe ensuite la technique à la création
+            puisqu'elle a réalisé, elle-même, toutes les étapes de la terre au
+            bronze pendant plus de 10 ans.
           </p>
           <p>
-            [Démarche] Chaque pièce naît d'une longue observation : la terre
-            d'abord, puis le bronze ou la résine. Le geste reste visible,
-            comme une trace.
+            À travers ses sculptures, Christine nous parle de son rapport au
+            monde. Ses sujets, axés sur la géométrie et la poésie, ne sont que
+            prétexte à faire fonctionner les formes entre elles.
           </p>
           <p>
-            [Parcours] Expositions personnelles et collectives en France et à
-            l'étranger. Œuvres présentes dans plusieurs collections privées.
+            Christine n'est pas intéressée par la vraisemblance illusoire avec
+            le réel mais plutôt par la présence du vivant et la résonance que
+            « l'objet » peut avoir sur l'esprit, nous permettant d'aller au-delà
+            de ce que l'on voit.
           </p>
+          <p className="font-serif text-xl italic text-foreground">
+            « La vision n'est pas que rétinienne ! »
+          </p>
+          <p>
+            Elle aime à se laisser guider par la nature. Ne pas la copier, mais
+            l'observer pour s'imprégner de son fonctionnement et tenter de
+            donner aux formes le pouvoir de dire.
+          </p>
+          <blockquote className="border-l-2 border-foreground/40 pl-6 font-serif text-lg italic text-foreground">
+            « Le bronze est une matière vivante,
+            <br />
+            jour après jour,
+            <br />
+            au rythme des saisons,
+            <br />
+            le temps y laissera ses traces…
+            <br />
+            comme il fait dans nos vies. »
+          </blockquote>
         </div>
       </section>
     </Layout>

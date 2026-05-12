@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "../components/site/Layout";
 import { PageHeader } from "../components/site/PageHeader";
-import { ImagePlaceholder } from "../components/site/Placeholder";
+import { steps } from "../data/foundry";
 
 export const Route = createFileRoute("/fonderie")({
   head: () => ({
@@ -10,25 +10,17 @@ export const Route = createFileRoute("/fonderie")({
       {
         name: "description",
         content:
-          "Plongée dans l'atelier et le processus de fonte des sculptures en bronze.",
+          "De la terre au bronze : les 19 étapes de la technique du bronze à la cire perdue, dans l'atelier de Christine Bouquet.",
       },
       { property: "og:title", content: "La fonderie — Christine Bouquet" },
       {
         property: "og:description",
-        content: "Atelier, modelage, moulage, cire perdue, patine.",
+        content: "Technique du bronze à la cire perdue, étape par étape.",
       },
     ],
   }),
   component: Fonderie,
 });
-
-const steps = [
-  { n: "01", t: "Modelage", d: "La terre est travaillée à la main, en atelier, jusqu'à trouver sa forme." },
-  { n: "02", t: "Moulage", d: "Un moule est réalisé pour préserver la forme originale." },
-  { n: "03", t: "Cire perdue", d: "Une épreuve en cire est tirée puis enrobée de céramique." },
-  { n: "04", t: "Coulée", d: "Le bronze en fusion remplace la cire à plus de 1100°C." },
-  { n: "05", t: "Patine", d: "Décochage, ciselure et patine donnent à la pièce sa peau finale." },
-];
 
 function Fonderie() {
   return (
@@ -36,23 +28,32 @@ function Fonderie() {
       <PageHeader
         eyebrow="L'atelier"
         title="La fonderie"
-        intro="Du modelage à la patine — les étapes d'une sculpture en bronze."
+        intro="De la terre au bronze. L'apprentissage de la technique permet la connaissance de la matière. La connaissance est un pas vers la liberté. C'est pourquoi, en 2010, la fonderie a vu le jour."
       />
-      <section className="mx-auto max-w-5xl space-y-20 px-6 pb-20">
-        {steps.map((s, i) => (
-          <div
-            key={s.n}
-            className={`grid items-center gap-10 md:grid-cols-2 ${
-              i % 2 ? "md:[&>div:first-child]:order-2" : ""
-            }`}
-          >
-            <ImagePlaceholder label={`Étape ${s.n} — ${s.t}`} ratio="4/3" />
-            <div>
-              <p className="font-serif text-5xl font-light text-muted-foreground">{s.n}</p>
-              <h2 className="mt-2 font-serif text-3xl text-foreground">{s.t}</h2>
-              <p className="mt-4 font-light leading-relaxed text-muted-foreground">{s.d}</p>
+      <section className="mx-auto max-w-3xl px-6 pb-10">
+        <p className="text-center font-serif text-xl italic text-foreground">
+          Technique du bronze à la cire perdue
+        </p>
+      </section>
+      <section className="mx-auto grid max-w-6xl gap-x-6 gap-y-12 px-6 pb-20 sm:grid-cols-2 md:grid-cols-3">
+        {steps.map((s) => (
+          <figure key={s.n} className="flex flex-col">
+            <div className="overflow-hidden bg-muted" style={{ aspectRatio: "1/1" }}>
+              <img
+                src={s.image}
+                alt={s.title}
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
             </div>
-          </div>
+            <figcaption className="mt-4">
+              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+                Étape {s.n}
+              </p>
+              <p className="mt-1 font-serif text-lg text-foreground">{s.title}</p>
+              <p className="mt-1 text-sm font-light text-muted-foreground">{s.desc}</p>
+            </figcaption>
+          </figure>
         ))}
       </section>
     </Layout>
