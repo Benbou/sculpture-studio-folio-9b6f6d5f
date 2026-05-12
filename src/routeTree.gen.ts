@@ -9,8 +9,50 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PortraitRouteImport } from './routes/portrait'
+import { Route as GalerieRouteImport } from './routes/galerie'
+import { Route as FonderieRouteImport } from './routes/fonderie'
+import { Route as ExpositionsRouteImport } from './routes/expositions'
+import { Route as EcranRouteImport } from './routes/ecran'
+import { Route as CyanotypeRouteImport } from './routes/cyanotype'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 
+const PortraitRoute = PortraitRouteImport.update({
+  id: '/portrait',
+  path: '/portrait',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalerieRoute = GalerieRouteImport.update({
+  id: '/galerie',
+  path: '/galerie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FonderieRoute = FonderieRouteImport.update({
+  id: '/fonderie',
+  path: '/fonderie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExpositionsRoute = ExpositionsRouteImport.update({
+  id: '/expositions',
+  path: '/expositions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcranRoute = EcranRouteImport.update({
+  id: '/ecran',
+  path: '/ecran',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CyanotypeRoute = CyanotypeRouteImport.update({
+  id: '/cyanotype',
+  path: '/cyanotype',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +61,130 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/cyanotype': typeof CyanotypeRoute
+  '/ecran': typeof EcranRoute
+  '/expositions': typeof ExpositionsRoute
+  '/fonderie': typeof FonderieRoute
+  '/galerie': typeof GalerieRoute
+  '/portrait': typeof PortraitRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/cyanotype': typeof CyanotypeRoute
+  '/ecran': typeof EcranRoute
+  '/expositions': typeof ExpositionsRoute
+  '/fonderie': typeof FonderieRoute
+  '/galerie': typeof GalerieRoute
+  '/portrait': typeof PortraitRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/cyanotype': typeof CyanotypeRoute
+  '/ecran': typeof EcranRoute
+  '/expositions': typeof ExpositionsRoute
+  '/fonderie': typeof FonderieRoute
+  '/galerie': typeof GalerieRoute
+  '/portrait': typeof PortraitRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/cyanotype'
+    | '/ecran'
+    | '/expositions'
+    | '/fonderie'
+    | '/galerie'
+    | '/portrait'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contact'
+    | '/cyanotype'
+    | '/ecran'
+    | '/expositions'
+    | '/fonderie'
+    | '/galerie'
+    | '/portrait'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/cyanotype'
+    | '/ecran'
+    | '/expositions'
+    | '/fonderie'
+    | '/galerie'
+    | '/portrait'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  CyanotypeRoute: typeof CyanotypeRoute
+  EcranRoute: typeof EcranRoute
+  ExpositionsRoute: typeof ExpositionsRoute
+  FonderieRoute: typeof FonderieRoute
+  GalerieRoute: typeof GalerieRoute
+  PortraitRoute: typeof PortraitRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/portrait': {
+      id: '/portrait'
+      path: '/portrait'
+      fullPath: '/portrait'
+      preLoaderRoute: typeof PortraitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galerie': {
+      id: '/galerie'
+      path: '/galerie'
+      fullPath: '/galerie'
+      preLoaderRoute: typeof GalerieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fonderie': {
+      id: '/fonderie'
+      path: '/fonderie'
+      fullPath: '/fonderie'
+      preLoaderRoute: typeof FonderieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/expositions': {
+      id: '/expositions'
+      path: '/expositions'
+      fullPath: '/expositions'
+      preLoaderRoute: typeof ExpositionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecran': {
+      id: '/ecran'
+      path: '/ecran'
+      fullPath: '/ecran'
+      preLoaderRoute: typeof EcranRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cyanotype': {
+      id: '/cyanotype'
+      path: '/cyanotype'
+      fullPath: '/cyanotype'
+      preLoaderRoute: typeof CyanotypeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +197,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  CyanotypeRoute: CyanotypeRoute,
+  EcranRoute: EcranRoute,
+  ExpositionsRoute: ExpositionsRoute,
+  FonderieRoute: FonderieRoute,
+  GalerieRoute: GalerieRoute,
+  PortraitRoute: PortraitRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
