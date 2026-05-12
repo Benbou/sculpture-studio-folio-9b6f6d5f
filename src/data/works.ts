@@ -93,7 +93,7 @@ export const works: Work[] = [
   { title: "Seule", image: img41, material: "Autres", edition: "Bonze patiné EA I Exemplaire d'artiste 1", dim: "9x9x9 cm", extra: ["Bonze patiné EA I Exemplaire d'artiste 1"] },
   { title: "Maternité", image: img42, material: "Bronze patin\u00e9", edition: "Bronze patiné 2/8", dim: "15,5 X 17 X 18 cm", extra: [] },
   { title: "Premier soleil", image: img43, material: "Bronze patin\u00e9", edition: "Bronze patiné 2/8", dim: "22 X 22 X 24cm", extra: [] },
-  { title: "La consolante", image: img44, material: "Bronze patin\u00e9", edition: "Bronze patiné 1/8", dim: "21 X 21 X 23 cm", extra: ["bottom of page"] },
+  { title: "La consolante", image: img44, material: "Bronze patin\u00e9", edition: "Bronze patiné 1/8", dim: "21 X 21 X 23 cm", extra: [] },
 ];
 
 export const materials: Material[] = ['Bronze patiné', 'Bronze poli-miroir', 'Résine', 'Autres'];
