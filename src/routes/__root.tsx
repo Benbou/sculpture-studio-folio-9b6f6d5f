@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Christine Bouquet" },
+      { name: "description", content: "An artist's portfolio website showcasing sculptures, featuring an interactive question-based content creation process." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Christine Bouquet" },
+      { property: "og:description", content: "An artist's portfolio website showcasing sculptures, featuring an interactive question-based content creation process." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Christine Bouquet" },
+      { name: "twitter:description", content: "An artist's portfolio website showcasing sculptures, featuring an interactive question-based content creation process." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/43d43913-2876-4ef2-93c5-ab3df0050481/id-preview-4343be00--afd88f72-69eb-41ff-8127-1bc3a281d7c0.lovable.app-1778615841666.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/43d43913-2876-4ef2-93c5-ab3df0050481/id-preview-4343be00--afd88f72-69eb-41ff-8127-1bc3a281d7c0.lovable.app-1778615841666.png" },
     ],
     links: [
       {
