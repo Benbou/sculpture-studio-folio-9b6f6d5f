@@ -1,7 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "../components/site/Layout";
-import { ImagePlaceholder } from "../components/site/Placeholder";
+import { works } from "../data/works";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -10,13 +9,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Portfolio de Christine Bouquet, sculptrice. Œuvres en bronze, terre, résine et plâtre, écrans et cyanotypes.",
+          "Christine Bouquet, sculptrice et fondeur d'art. Bronzes patinés, bronze poli-miroir et résine. Atelier à Bondues, près de Lille.",
       },
       { property: "og:title", content: "Christine Bouquet — Sculptrice" },
       {
         property: "og:description",
         content:
-          "Portfolio de Christine Bouquet, sculptrice. Œuvres, atelier, expositions.",
+          "Bronzes patinés, bronze poli-miroir et résine. Atelier à Bondues, près de Lille.",
       },
     ],
   }),
@@ -24,21 +23,28 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const hero = works.find((w) => w.title === "Tête en l'air") ?? works[0];
+  const selection = [
+    works.find((w) => w.title === "Forme composée I"),
+    works.find((w) => w.title === "L'orchestre"),
+    works.find((w) => w.title === "Connexion végétale II"),
+  ].filter(Boolean) as typeof works;
+
   return (
     <Layout>
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-28">
+      <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
         <div>
           <p className="mb-6 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            Sculpteur — France
+            Sculptrice — Bondues, France
           </p>
           <h1 className="font-serif text-5xl font-light leading-[1.05] text-foreground md:text-7xl">
-            Donner forme
+            De la terre
             <br />
-            au silence.
+            au bronze.
           </h1>
           <p className="mt-8 max-w-md text-base font-light leading-relaxed text-muted-foreground">
-            Sculptures en bronze, terre et résine. Un travail patient sur la
-            matière, le geste et la mémoire des corps.
+            Christine Bouquet sculpte la présence du vivant. Bronzes patinés,
+            poli-miroir et résines, réalisés à la cire perdue dans son atelier.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
@@ -51,19 +57,27 @@ function Index() {
               to="/portrait"
               className="px-6 py-3 text-xs uppercase tracking-[0.25em] text-muted-foreground transition-colors hover:text-foreground"
             >
-              À propos →
+              Portrait →
             </Link>
           </div>
         </div>
         <div>
-          <ImagePlaceholder label="Œuvre principale — bronze" ratio="4/5" />
+          <img
+            src={hero.image}
+            alt={hero.title}
+            className="w-full object-cover"
+            style={{ aspectRatio: "4/5" }}
+          />
+          <p className="mt-3 text-xs uppercase tracking-[0.25em] text-muted-foreground">
+            {hero.title} · {hero.material}
+          </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-16 md:pb-28">
+      <section className="mx-auto max-w-6xl px-6 pb-16 md:pb-24">
         <div className="mb-10 flex items-end justify-between border-b border-border pb-4">
           <h2 className="font-serif text-2xl font-light text-foreground md:text-3xl">
-            Sélection récente
+            Sélection
           </h2>
           <Link
             to="/galerie"
@@ -72,11 +86,34 @@ function Index() {
             Tout voir →
           </Link>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {["Bronze — 2024", "Terre — 2023", "Résine — 2024"].map((l) => (
-            <ImagePlaceholder key={l} label={l} ratio="3/4" />
+        <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3">
+          {selection.map((w) => (
+            <Link to="/galerie" key={w.title} className="group block">
+              <div className="overflow-hidden bg-muted" style={{ aspectRatio: "3/4" }}>
+                <img
+                  src={w.image}
+                  alt={w.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+              </div>
+              <p className="mt-3 font-serif text-lg text-foreground">{w.title}</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                {w.material}
+              </p>
+            </Link>
           ))}
         </div>
+      </section>
+
+      <section className="mx-auto max-w-3xl px-6 pb-24 text-center">
+        <p className="font-serif text-2xl italic leading-relaxed text-foreground md:text-3xl">
+          « Le bronze est une matière vivante, jour après jour, au rythme des
+          saisons, le temps y laissera ses traces… comme il fait dans nos vies. »
+        </p>
+        <p className="mt-4 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          — Christine Bouquet
+        </p>
       </section>
     </Layout>
   );

@@ -5,77 +5,148 @@ import { PageHeader } from "../components/site/PageHeader";
 export const Route = createFileRoute("/expositions")({
   head: () => ({
     meta: [
-      { title: "Expositions & presse — Christine Bouquet" },
+      { title: "Expositions — Christine Bouquet" },
       {
         name: "description",
         content:
-          "Expositions passées et à venir, articles et presse autour du travail de Christine Bouquet.",
+          "Expositions passées et à venir de Christine Bouquet, sculptrice (Lille, Paris, Belgique).",
       },
-      { property: "og:title", content: "Expositions & presse — Christine Bouquet" },
+      { property: "og:title", content: "Expositions — Christine Bouquet" },
       {
         property: "og:description",
-        content: "Agenda et revue de presse.",
+        content: "Agenda des expositions de Christine Bouquet.",
       },
     ],
   }),
   component: Expositions,
 });
 
-const upcoming = [
-  { date: "À venir", title: "[Titre de l'exposition]", place: "[Lieu, ville]" },
-];
+type Event = { title: string; place?: string; dates?: string[] };
+type Year = { year: string; events: Event[] };
 
-const past = [
-  { date: "2024", title: "[Exposition collective]", place: "[Galerie, ville]" },
-  { date: "2023", title: "[Exposition personnelle]", place: "[Lieu, ville]" },
-  { date: "2022", title: "[Salon]", place: "[Ville]" },
+const data: Year[] = [
+  {
+    year: "2025",
+    events: [
+      {
+        title: "FESTIV'ARTS — Espace Lille Métropole",
+        place: "16 avenue du Molinel, Wasquehal",
+        dates: [
+          "Vernissage : vendredi 31 octobre 2025, 17h",
+          "Samedi 1er novembre 9h30 – 20h",
+          "Dimanche 2 novembre 8h30 – 19h",
+        ],
+      },
+      {
+        title: "Portes ouvertes des Ateliers d'Artistes",
+        place: "Bondues",
+        dates: ["Samedi 4 et dimanche 5 octobre 2025"],
+      },
+      {
+        title: "5ᵉ Salon des Artistes Solidaires",
+        place: "Espace Michel Delplancke, route de Hautevalle, Linselles (59126)",
+        dates: ["Samedi 31 mai et dimanche 1er juin 2025, 10h – 19h"],
+      },
+      {
+        title: "Week-end des Arts",
+        place: "Ferme du Mont Saint-Jean, Halluin (59250)",
+        dates: ["28, 29 et 30 mars 2025, 10h – 19h"],
+      },
+    ],
+  },
+  {
+    year: "2024",
+    events: [
+      {
+        title: "Portes ouvertes des Ateliers d'Artistes",
+        place: "158 av. des Saules, 59910 Bondues",
+        dates: ["Samedi et dimanche 5 et 6 octobre 2024 — 10h–12h / 14h–18h"],
+      },
+    ],
+  },
+  {
+    year: "2023",
+    events: [
+      {
+        title: "Templ'Œuvres d'Art",
+        place: "Salle de l'ancienne mairie, Place du Général de Gaulle, Templeuve-en-Pévèle",
+        dates: [
+          "Samedi et dimanche 18/19 et 25/26 novembre, 10h30–12h30 / 15h–19h",
+          "Vendredi 24 novembre, 15h–19h",
+        ],
+      },
+      {
+        title: "Portes ouvertes des Ateliers d'Artistes",
+        place: "Bondues",
+        dates: ["Samedi et dimanche 7 et 8 octobre, 10h–12h / 14h–18h"],
+      },
+      {
+        title: "ART2-SERVE",
+        place: "Musée de Folklore Vie Frontalière, Mouscron (Belgique)",
+        dates: [
+          "Vernissage 31 mars (sur invitation)",
+          "1er et 2 avril, 10h–18h",
+          "Organisée par le Lions Club Mouscron",
+        ],
+      },
+    ],
+  },
+  {
+    year: "2022",
+    events: [
+      {
+        title: "Exposition « Vision » — Galerie By Châtel",
+        place: "58 rue des Tournelles, Paris 3ᵉ",
+        dates: [
+          "7 avril – 1er mai 2022",
+          "Mercredi au samedi 12h–19h, dimanche et jours fériés 14h–19h",
+        ],
+      },
+      {
+        title: "Exposition-vente Lions Club Roubaix-Tourcoing",
+        place: "Centre Paul Corteville, 295 rue de Lille, Roncq",
+        dates: ["1er, 2 et 3 avril 2022 — au profit du CAS de Roubaix"],
+      },
+      {
+        title: "« De la terre au bronze »",
+        place: "Espace culturel de Bondues (59)",
+        dates: ["26 février – 13 mars 2022"],
+      },
+    ],
+  },
 ];
-
-const press = [
-  { date: "2024", title: "[Titre de l'article]", source: "[Nom du média]" },
-  { date: "2023", title: "[Interview]", source: "[Nom du média]" },
-];
-
-function List({
-  title,
-  items,
-}: {
-  title: string;
-  items: { date: string; title: string; place?: string; source?: string }[];
-}) {
-  return (
-    <div>
-      <h2 className="mb-6 border-b border-border pb-3 font-serif text-2xl font-light text-foreground">
-        {title}
-      </h2>
-      <ul className="divide-y divide-border">
-        {items.map((it, i) => (
-          <li
-            key={i}
-            className="grid gap-1 py-5 md:grid-cols-[120px_1fr_1fr] md:items-baseline md:gap-6"
-          >
-            <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              {it.date}
-            </span>
-            <span className="font-serif text-lg text-foreground">{it.title}</span>
-            <span className="text-sm font-light text-muted-foreground">
-              {it.place ?? it.source}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
 
 function Expositions() {
   return (
     <Layout>
-      <PageHeader eyebrow="Agenda" title="Expositions & presse" />
-      <section className="mx-auto max-w-4xl space-y-16 px-6 pb-20">
-        <List title="À venir" items={upcoming} />
-        <List title="Expositions passées" items={past} />
-        <List title="Presse" items={press} />
+      <PageHeader eyebrow="Agenda" title="Expositions" />
+      <section className="mx-auto max-w-3xl space-y-16 px-6 pb-20">
+        {data.map((y) => (
+          <div key={y.year}>
+            <h2 className="mb-6 border-b border-border pb-3 font-serif text-3xl font-light text-foreground">
+              {y.year}
+            </h2>
+            <ul className="divide-y divide-border">
+              {y.events.map((e, i) => (
+                <li key={i} className="py-6">
+                  <p className="font-serif text-xl text-foreground">{e.title}</p>
+                  {e.place && (
+                    <p className="mt-1 text-sm font-light italic text-muted-foreground">
+                      {e.place}
+                    </p>
+                  )}
+                  {e.dates && (
+                    <ul className="mt-2 space-y-1 text-sm font-light text-foreground/80">
+                      {e.dates.map((d, j) => (
+                        <li key={j}>{d}</li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </section>
     </Layout>
   );
