@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Layout } from "../components/site/Layout";
 import { PageHeader } from "../components/site/PageHeader";
-import { ImagePlaceholder } from "../components/site/Placeholder";
+import { works, materials, type Material, type Work } from "../data/works";
 
 export const Route = createFileRoute("/galerie")({
   head: () => ({
@@ -11,32 +11,17 @@ export const Route = createFileRoute("/galerie")({
       {
         name: "description",
         content:
-          "Galerie des sculptures de Christine Bouquet, classées par matériau : bronze, terre, résine, plâtre.",
+          "Galerie des sculptures de Christine Bouquet : bronze patiné, bronze poli-miroir, résine.",
       },
       { property: "og:title", content: "Galerie — Christine Bouquet" },
       {
         property: "og:description",
-        content: "Sculptures en bronze, terre, résine et plâtre.",
+        content: "Sculptures en bronze et résine.",
       },
     ],
   }),
   component: Galerie,
 });
-
-const materials = ["Bronze", "Terre", "Résine", "Plâtre", "Autres"] as const;
-type Material = (typeof materials)[number];
-
-type Work = { id: string; title: string; year: string; material: Material; dim: string };
-
-const works: Work[] = [
-  { id: "b1", title: "Tête au vent I", year: "2024", material: "Bronze", dim: "45 × 30 × 20 cm" },
-  { id: "b2", title: "Tête au vent II", year: "2024", material: "Bronze", dim: "45 × 30 × 20 cm" },
-  { id: "b3", title: "Figure debout", year: "2023", material: "Bronze", dim: "70 × 20 × 18 cm" },
-  { id: "t1", title: "Étude n°1", year: "2023", material: "Terre", dim: "30 × 25 × 20 cm" },
-  { id: "t2", title: "Étude n°2", year: "2023", material: "Terre", dim: "32 × 24 × 22 cm" },
-  { id: "r1", title: "Suspension", year: "2024", material: "Résine", dim: "60 × 40 × 30 cm" },
-  { id: "p1", title: "Visage", year: "2022", material: "Plâtre", dim: "28 × 20 × 18 cm" },
-];
 
 function Galerie() {
   const [filter, setFilter] = useState<Material | "Tous">("Tous");
@@ -48,7 +33,7 @@ function Galerie() {
       <PageHeader
         eyebrow="Galerie"
         title="Œuvres"
-        intro="Une sélection classée par matériau. Cliquez sur une œuvre pour l'agrandir."
+        intro="Sélection de sculptures en bronze et résine. Cliquez sur une œuvre pour l'agrandir."
       />
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-10 flex flex-wrap justify-center gap-2 border-b border-border pb-6">
@@ -69,16 +54,20 @@ function Galerie() {
 
         <div className="grid gap-x-6 gap-y-12 pb-16 sm:grid-cols-2 md:grid-cols-3">
           {list.map((w) => (
-            <button
-              key={w.id}
-              onClick={() => setActive(w)}
-              className="group text-left"
-            >
-              <ImagePlaceholder label={`${w.material} — ${w.year}`} ratio="3/4" />
+            <button key={w.title} onClick={() => setActive(w)} className="group text-left">
+              <div className="overflow-hidden bg-muted" style={{ aspectRatio: "3/4" }}>
+                <img
+                  src={w.image}
+                  alt={w.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+              </div>
               <div className="mt-3">
                 <p className="font-serif text-lg text-foreground">{w.title}</p>
                 <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  {w.material} · {w.year}
+                  {w.material}
+                  {w.edition ? ` · ${w.edition}` : ""}
                 </p>
               </div>
             </button>
@@ -92,22 +81,33 @@ function Galerie() {
           onClick={() => setActive(null)}
         >
           <div
-            className="grid w-full max-w-4xl gap-6 bg-background p-6 md:grid-cols-[1.4fr_1fr] md:p-10"
+            className="grid max-h-[90vh] w-full max-w-5xl gap-6 overflow-auto bg-background p-6 md:grid-cols-[1.4fr_1fr] md:p-10"
             onClick={(e) => e.stopPropagation()}
           >
-            <ImagePlaceholder label={`${active.material} — ${active.year}`} ratio="4/5" />
+            <img
+              src={active.image}
+              alt={active.title}
+              className="h-auto w-full object-contain"
+            />
             <div className="flex flex-col justify-between">
               <div>
                 <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
                   {active.material}
                 </p>
                 <h2 className="mt-2 font-serif text-3xl text-foreground">{active.title}</h2>
-                <p className="mt-1 text-sm text-muted-foreground">{active.year}</p>
-                <p className="mt-6 text-sm font-light text-foreground/80">{active.dim}</p>
-                <p className="mt-4 text-sm font-light leading-relaxed text-muted-foreground">
-                  [Description à compléter — quelques lignes sur l'œuvre, son
-                  contexte, sa technique.]
-                </p>
+                {active.edition && (
+                  <p className="mt-1 text-sm text-muted-foreground">{active.edition}</p>
+                )}
+                {active.dim && (
+                  <p className="mt-6 text-sm font-light text-foreground/80">{active.dim}</p>
+                )}
+                {active.extra && active.extra.length > 0 && (
+                  <ul className="mt-3 space-y-1 text-sm font-light text-muted-foreground">
+                    {active.extra.map((e, i) => (
+                      <li key={i}>{e}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
               <button
                 onClick={() => setActive(null)}
