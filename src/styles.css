@@ -68,7 +68,6 @@
   --radius: 0.625rem;
   /* Cream / museum palette */
   --background: oklch(0.985 0.005 85);
-  --foreground: oklch(0.２ 0 0);
   --foreground: oklch(0.18 0.005 60);
   --card: oklch(0.99 0.004 85);
   --card-foreground: oklch(0.18 0.005 60);
