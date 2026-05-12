@@ -128,19 +128,19 @@ function Expositions() {
             </h2>
             <ul className="divide-y divide-border">
               {y.events.map((e, i) => (
-                <li key={i} className="py-8">
-                  {e.dates && (
-                    <ul className="mb-3 space-y-0.5 font-serif text-lg font-medium tracking-wide text-foreground">
-                      {e.dates.map((d, j) => (
-                        <li key={j}>{d}</li>
-                      ))}
-                    </ul>
-                  )}
-                  <p className="font-serif text-xl font-light text-foreground">{e.title}</p>
+                <li key={i} className="py-6">
+                  <p className="font-serif text-xl text-foreground">{e.title}</p>
                   {e.place && (
                     <p className="mt-1 text-sm font-light italic text-muted-foreground">
                       {e.place}
                     </p>
+                  )}
+                  {e.dates && (
+                    <ul className="mt-2 space-y-1 text-sm font-light text-foreground/80">
+                      {e.dates.map((d, j) => (
+                        <li key={j}>{d}</li>
+                      ))}
+                    </ul>
                   )}
                 </li>
               ))}
