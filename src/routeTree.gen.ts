@@ -13,7 +13,7 @@ import { Route as PortraitRouteImport } from './routes/portrait'
 import { Route as GalerieRouteImport } from './routes/galerie'
 import { Route as FonderieRouteImport } from './routes/fonderie'
 import { Route as ExpositionsRouteImport } from './routes/expositions'
-import { Route as EcranRouteImport } from './routes/ecran'
+import { Route as EncresRouteImport } from './routes/encres'
 import { Route as CyanotypeRouteImport } from './routes/cyanotype'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
@@ -38,9 +38,9 @@ const ExpositionsRoute = ExpositionsRouteImport.update({
   path: '/expositions',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EcranRoute = EcranRouteImport.update({
-  id: '/ecran',
-  path: '/ecran',
+const EncresRoute = EncresRouteImport.update({
+  id: '/encres',
+  path: '/encres',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CyanotypeRoute = CyanotypeRouteImport.update({
@@ -63,7 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/cyanotype': typeof CyanotypeRoute
-  '/ecran': typeof EcranRoute
+  '/encres': typeof EncresRoute
   '/expositions': typeof ExpositionsRoute
   '/fonderie': typeof FonderieRoute
   '/galerie': typeof GalerieRoute
@@ -73,7 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/cyanotype': typeof CyanotypeRoute
-  '/ecran': typeof EcranRoute
+  '/encres': typeof EncresRoute
   '/expositions': typeof ExpositionsRoute
   '/fonderie': typeof FonderieRoute
   '/galerie': typeof GalerieRoute
@@ -84,7 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/cyanotype': typeof CyanotypeRoute
-  '/ecran': typeof EcranRoute
+  '/encres': typeof EncresRoute
   '/expositions': typeof ExpositionsRoute
   '/fonderie': typeof FonderieRoute
   '/galerie': typeof GalerieRoute
@@ -96,7 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/cyanotype'
-    | '/ecran'
+    | '/encres'
     | '/expositions'
     | '/fonderie'
     | '/galerie'
@@ -106,7 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/cyanotype'
-    | '/ecran'
+    | '/encres'
     | '/expositions'
     | '/fonderie'
     | '/galerie'
@@ -116,7 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/cyanotype'
-    | '/ecran'
+    | '/encres'
     | '/expositions'
     | '/fonderie'
     | '/galerie'
@@ -127,7 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   CyanotypeRoute: typeof CyanotypeRoute
-  EcranRoute: typeof EcranRoute
+  EncresRoute: typeof EncresRoute
   ExpositionsRoute: typeof ExpositionsRoute
   FonderieRoute: typeof FonderieRoute
   GalerieRoute: typeof GalerieRoute
@@ -164,11 +164,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExpositionsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ecran': {
-      id: '/ecran'
-      path: '/ecran'
-      fullPath: '/ecran'
-      preLoaderRoute: typeof EcranRouteImport
+    '/encres': {
+      id: '/encres'
+      path: '/encres'
+      fullPath: '/encres'
+      preLoaderRoute: typeof EncresRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cyanotype': {
@@ -199,7 +199,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   CyanotypeRoute: CyanotypeRoute,
-  EcranRoute: EcranRoute,
+  EncresRoute: EncresRoute,
   ExpositionsRoute: ExpositionsRoute,
   FonderieRoute: FonderieRoute,
   GalerieRoute: GalerieRoute,
@@ -208,13 +208,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
