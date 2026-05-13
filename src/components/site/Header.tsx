@@ -7,7 +7,7 @@ const links = [
   { to: "/portrait", label: "Portrait" },
   { to: "/galerie", label: "Galerie" },
   { to: "/fonderie", label: "La fonderie" },
-  { to: "/ecran", label: "Écran" },
+  { to: "/encres", label: "Encres" },
   { to: "/cyanotype", label: "Cyanotype" },
   { to: "/expositions", label: "Expositions" },
   { to: "/contact", label: "Contact" },
