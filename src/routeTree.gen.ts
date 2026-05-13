@@ -13,6 +13,7 @@ import { Route as PortraitRouteImport } from './routes/portrait'
 import { Route as GalerieRouteImport } from './routes/galerie'
 import { Route as FonderieRouteImport } from './routes/fonderie'
 import { Route as ExpositionsRouteImport } from './routes/expositions'
+import { Route as EncresRouteImport } from './routes/encres'
 import { Route as EcranRouteImport } from './routes/ecran'
 import { Route as CyanotypeRouteImport } from './routes/cyanotype'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -36,6 +37,11 @@ const FonderieRoute = FonderieRouteImport.update({
 const ExpositionsRoute = ExpositionsRouteImport.update({
   id: '/expositions',
   path: '/expositions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EncresRoute = EncresRouteImport.update({
+  id: '/encres',
+  path: '/encres',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EcranRoute = EcranRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/cyanotype': typeof CyanotypeRoute
   '/ecran': typeof EcranRoute
+  '/encres': typeof EncresRoute
   '/expositions': typeof ExpositionsRoute
   '/fonderie': typeof FonderieRoute
   '/galerie': typeof GalerieRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/cyanotype': typeof CyanotypeRoute
   '/ecran': typeof EcranRoute
+  '/encres': typeof EncresRoute
   '/expositions': typeof ExpositionsRoute
   '/fonderie': typeof FonderieRoute
   '/galerie': typeof GalerieRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/cyanotype': typeof CyanotypeRoute
   '/ecran': typeof EcranRoute
+  '/encres': typeof EncresRoute
   '/expositions': typeof ExpositionsRoute
   '/fonderie': typeof FonderieRoute
   '/galerie': typeof GalerieRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cyanotype'
     | '/ecran'
+    | '/encres'
     | '/expositions'
     | '/fonderie'
     | '/galerie'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cyanotype'
     | '/ecran'
+    | '/encres'
     | '/expositions'
     | '/fonderie'
     | '/galerie'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cyanotype'
     | '/ecran'
+    | '/encres'
     | '/expositions'
     | '/fonderie'
     | '/galerie'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CyanotypeRoute: typeof CyanotypeRoute
   EcranRoute: typeof EcranRoute
+  EncresRoute: typeof EncresRoute
   ExpositionsRoute: typeof ExpositionsRoute
   FonderieRoute: typeof FonderieRoute
   GalerieRoute: typeof GalerieRoute
@@ -162,6 +175,13 @@ declare module '@tanstack/react-router' {
       path: '/expositions'
       fullPath: '/expositions'
       preLoaderRoute: typeof ExpositionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/encres': {
+      id: '/encres'
+      path: '/encres'
+      fullPath: '/encres'
+      preLoaderRoute: typeof EncresRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ecran': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CyanotypeRoute: CyanotypeRoute,
   EcranRoute: EcranRoute,
+  EncresRoute: EncresRoute,
   ExpositionsRoute: ExpositionsRoute,
   FonderieRoute: FonderieRoute,
   GalerieRoute: GalerieRoute,
