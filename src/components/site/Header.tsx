@@ -8,7 +8,7 @@ const links = [
   { to: "/galerie", label: "Galerie" },
   { to: "/fonderie", label: "La fonderie" },
   { to: "/encres", label: "Encres" },
-  { to: "/cyanotype", label: "Cyanotype" },
+  { to: "/cyanotypes", label: "Cyanotypes" },
   { to: "/expositions", label: "Expositions" },
   { to: "/contact", label: "Contact" },
 ] as const;
