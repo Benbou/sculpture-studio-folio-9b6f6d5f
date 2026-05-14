@@ -16,7 +16,7 @@ export default function Contact() {
         intro="Pour une visite d'atelier, une exposition ou toute information."
       />
       <section className="mx-auto max-w-2xl px-6 pb-20">
-        <div className="space-y-3 font-light text-foreground/90">
+        <div className="flex flex-col items-center space-y-3 text-center font-light text-foreground/90">
           <p className="text-sm">
             <a className="hover:text-foreground" href="mailto:chr.bouquet@icloud.com">
               chr.bouquet@icloud.com
