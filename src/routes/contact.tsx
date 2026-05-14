@@ -1,25 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Layout } from "../components/site/Layout";
 import { PageHeader } from "../components/site/PageHeader";
+import { Seo } from "../components/site/Seo";
 import signature from "../assets/portrait/signature.png";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Christine Bouquet" },
-      {
-        name: "description",
-        content: "Contacter Christine Bouquet, sculptrice à Bondues, près de Lille.",
-      },
-      { property: "og:title", content: "Contact — Christine Bouquet" },
-      { property: "og:description", content: "Écrire à l'artiste." },
-    ],
-  }),
-  component: Contact,
-});
-
-function Contact() {
+export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   const onSubmit = (e: React.FormEvent) => {
@@ -31,6 +16,10 @@ function Contact() {
 
   return (
     <Layout>
+      <Seo
+        title="Contact — Christine Bouquet"
+        description="Contacter Christine Bouquet, sculptrice à Bondues, près de Lille."
+      />
       <PageHeader
         eyebrow="Écrire"
         title="Contact"

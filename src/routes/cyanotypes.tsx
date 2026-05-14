@@ -1,30 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "../components/site/Layout";
 import { PageHeader } from "../components/site/PageHeader";
+import { Seo } from "../components/site/Seo";
 import { ImagePlaceholder } from "../components/site/Placeholder";
 
-export const Route = createFileRoute("/cyanotypes")({
-  head: () => ({
-    meta: [
-      { title: "Cyanotypes — Christine Bouquet" },
-      {
-        name: "description",
-        content:
-          "Travaux cyanotypes de Christine Bouquet — empreintes au bleu de Prusse.",
-      },
-      { property: "og:title", content: "Cyanotypes — Christine Bouquet" },
-      {
-        property: "og:description",
-        content: "Cyanotypess de Christine Bouquet.",
-      },
-    ],
-  }),
-  component: Cyanotypes,
-});
-
-function Cyanotypes() {
+export default function Cyanotypes() {
   return (
     <Layout>
+      <Seo
+        title="Cyanotypes — Christine Bouquet"
+        description="Travaux cyanotypes de Christine Bouquet — empreintes au bleu de Prusse."
+      />
       <PageHeader
         eyebrow="Sur papier"
         title="Cyanotypes"

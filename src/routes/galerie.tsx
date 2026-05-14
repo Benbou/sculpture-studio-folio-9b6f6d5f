@@ -1,35 +1,20 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Layout } from "../components/site/Layout";
 import { PageHeader } from "../components/site/PageHeader";
+import { Seo } from "../components/site/Seo";
 import { works, materials, type Material, type Work } from "../data/works";
 
-export const Route = createFileRoute("/galerie")({
-  head: () => ({
-    meta: [
-      { title: "Galerie — Christine Bouquet" },
-      {
-        name: "description",
-        content:
-          "Galerie des sculptures de Christine Bouquet : bronze patiné, bronze poli-miroir, résine.",
-      },
-      { property: "og:title", content: "Galerie — Christine Bouquet" },
-      {
-        property: "og:description",
-        content: "Sculptures en bronze et résine.",
-      },
-    ],
-  }),
-  component: Galerie,
-});
-
-function Galerie() {
+export default function Galerie() {
   const [filter, setFilter] = useState<Material | "Tous">("Tous");
   const [active, setActive] = useState<Work | null>(null);
   const list = filter === "Tous" ? works : works.filter((w) => w.material === filter);
 
   return (
     <Layout>
+      <Seo
+        title="Galerie — Christine Bouquet"
+        description="Galerie des sculptures de Christine Bouquet : bronze patiné, bronze poli-miroir, résine."
+      />
       <PageHeader
         eyebrow="Galerie"
         title="Œuvres"

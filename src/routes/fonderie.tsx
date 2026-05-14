@@ -1,30 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "../components/site/Layout";
 import { PageHeader } from "../components/site/PageHeader";
+import { Seo } from "../components/site/Seo";
 import { steps } from "../data/foundry";
 
-export const Route = createFileRoute("/fonderie")({
-  head: () => ({
-    meta: [
-      { title: "La fonderie — Christine Bouquet" },
-      {
-        name: "description",
-        content:
-          "De la terre au bronze : les 19 étapes de la technique du bronze à la cire perdue, dans l'atelier de Christine Bouquet.",
-      },
-      { property: "og:title", content: "La fonderie — Christine Bouquet" },
-      {
-        property: "og:description",
-        content: "Technique du bronze à la cire perdue, étape par étape.",
-      },
-    ],
-  }),
-  component: Fonderie,
-});
-
-function Fonderie() {
+export default function Fonderie() {
   return (
     <Layout>
+      <Seo
+        title="La fonderie — Christine Bouquet"
+        description="De la terre au bronze : les 19 étapes de la technique du bronze à la cire perdue, dans l'atelier de Christine Bouquet."
+      />
       <PageHeader
         eyebrow="L'atelier"
         title="La fonderie"
