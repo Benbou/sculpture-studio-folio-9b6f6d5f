@@ -1,31 +1,16 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "../components/site/Layout";
 import { PageHeader } from "../components/site/PageHeader";
+import { Seo } from "../components/site/Seo";
 import portrait from "../assets/portrait/christine.jpeg";
 import signature from "../assets/portrait/signature.png";
 
-export const Route = createFileRoute("/portrait")({
-  head: () => ({
-    meta: [
-      { title: "Portrait — Christine Bouquet, sculptrice" },
-      {
-        name: "description",
-        content:
-          "Née à Paris en 1960, Christine Bouquet vit et travaille à Bondues près de Lille. Sculptrice et fondeur d'art.",
-      },
-      { property: "og:title", content: "Portrait — Christine Bouquet" },
-      {
-        property: "og:description",
-        content: "Bio, parcours et démarche de la sculptrice Christine Bouquet.",
-      },
-    ],
-  }),
-  component: Portrait,
-});
-
-function Portrait() {
+export default function Portrait() {
   return (
     <Layout>
+      <Seo
+        title="Portrait — Christine Bouquet, sculptrice"
+        description="Née à Paris en 1960, Christine Bouquet vit et travaille à Bondues près de Lille. Sculptrice et fondeur d'art."
+      />
       <PageHeader eyebrow="Portrait" title="Christine Bouquet" />
       <section className="mx-auto grid max-w-5xl gap-12 px-6 pb-16 md:grid-cols-[1fr_1.4fr] md:gap-16">
         <div>

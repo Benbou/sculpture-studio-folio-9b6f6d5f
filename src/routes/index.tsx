@@ -1,28 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Layout } from "../components/site/Layout";
+import { Seo } from "../components/site/Seo";
 import { works } from "../data/works";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Christine Bouquet — Sculptrice" },
-      {
-        name: "description",
-        content:
-          "Christine Bouquet, sculptrice et fondeur d'art. Bronzes patinés, bronze poli-miroir et résine. Atelier à Bondues, près de Lille.",
-      },
-      { property: "og:title", content: "Christine Bouquet — Sculptrice" },
-      {
-        property: "og:description",
-        content:
-          "Bronzes patinés, bronze poli-miroir et résine. Atelier à Bondues, près de Lille.",
-      },
-    ],
-  }),
-  component: Index,
-});
-
-function Index() {
+export default function Index() {
   const hero = works.find((w) => w.title === "Tête en l'air") ?? works[0];
   const selection = [
     works.find((w) => w.title === "Forme composée I"),
@@ -32,6 +13,10 @@ function Index() {
 
   return (
     <Layout>
+      <Seo
+        title="Christine Bouquet — Sculptrice"
+        description="Christine Bouquet, sculptrice et fondeur d'art. Bronzes patinés, bronze poli-miroir et résine. Atelier à Bondues, près de Lille."
+      />
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
         <div>
           <p className="mb-6 text-xs uppercase tracking-[0.3em] text-muted-foreground">

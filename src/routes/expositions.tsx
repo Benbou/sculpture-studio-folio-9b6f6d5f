@@ -1,25 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "../components/site/Layout";
 import { PageHeader } from "../components/site/PageHeader";
-
-export const Route = createFileRoute("/expositions")({
-  head: () => ({
-    meta: [
-      { title: "Expositions — Christine Bouquet" },
-      {
-        name: "description",
-        content:
-          "Expositions passées et à venir de Christine Bouquet, sculptrice (Lille, Paris, Belgique).",
-      },
-      { property: "og:title", content: "Expositions — Christine Bouquet" },
-      {
-        property: "og:description",
-        content: "Agenda des expositions de Christine Bouquet.",
-      },
-    ],
-  }),
-  component: Expositions,
-});
+import { Seo } from "../components/site/Seo";
 
 type Event = { title: string; place?: string; dates?: string[] };
 type Year = { year: string; events: Event[] };
@@ -116,9 +97,13 @@ const data: Year[] = [
   },
 ];
 
-function Expositions() {
+export default function Expositions() {
   return (
     <Layout>
+      <Seo
+        title="Expositions — Christine Bouquet"
+        description="Expositions passées et à venir de Christine Bouquet, sculptrice (Lille, Paris, Belgique)."
+      />
       <PageHeader eyebrow="Agenda" title="Expositions" />
       <section className="mx-auto max-w-3xl space-y-16 px-6 pb-20">
         {data.map((y) => (

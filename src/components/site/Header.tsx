@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -27,15 +27,18 @@ export function Header() {
         </Link>
         <nav className="hidden items-center gap-7 md:flex">
           {links.map((l) => (
-            <Link
+            <NavLink
               key={l.to}
               to={l.to}
-              className="text-sm font-light tracking-wide text-muted-foreground transition-colors hover:text-foreground"
-              activeProps={{ className: "text-foreground" }}
-              activeOptions={{ exact: l.to === "/" }}
+              end={l.to === "/"}
+              className={({ isActive }) =>
+                `text-sm font-light tracking-wide transition-colors hover:text-foreground ${
+                  isActive ? "text-foreground" : "text-muted-foreground"
+                }`
+              }
             >
               {l.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
         <button
@@ -49,16 +52,19 @@ export function Header() {
       {open && (
         <nav className="flex flex-col gap-1 border-t border-border bg-background px-6 py-4 md:hidden">
           {links.map((l) => (
-            <Link
+            <NavLink
               key={l.to}
               to={l.to}
               onClick={() => setOpen(false)}
-              className="py-2 text-sm tracking-wide text-muted-foreground"
-              activeProps={{ className: "text-foreground" }}
-              activeOptions={{ exact: l.to === "/" }}
+              end={l.to === "/"}
+              className={({ isActive }) =>
+                `py-2 text-sm tracking-wide ${
+                  isActive ? "text-foreground" : "text-muted-foreground"
+                }`
+              }
             >
               {l.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
       )}

@@ -1,26 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "../components/site/Layout";
 import { PageHeader } from "../components/site/PageHeader";
+import { Seo } from "../components/site/Seo";
 import { ImagePlaceholder } from "../components/site/Placeholder";
 
-export const Route = createFileRoute("/encres")({
-  head: () => ({
-    meta: [
-      { title: "Encres — Christine Bouquet" },
-      {
-        name: "description",
-        content: "Série « Encres » — œuvres de Christine Bouquet.",
-      },
-      { property: "og:title", content: "Encres — Christine Bouquet" },
-      { property: "og:description", content: "Série Encres de Christine Bouquet." },
-    ],
-  }),
-  component: Encres,
-});
-
-function Encres() {
+export default function Encres() {
   return (
     <Layout>
+      <Seo
+        title="Encres — Christine Bouquet"
+        description="Série « Encres » — œuvres de Christine Bouquet."
+      />
       <PageHeader
         eyebrow="Série"
         title="Encres"
