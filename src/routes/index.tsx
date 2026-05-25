@@ -4,11 +4,11 @@ import { Seo } from "../components/site/Seo";
 import { works } from "../data/works";
 
 export default function Index() {
-  const hero = works.find((w) => w.title === "Tête en l'air") ?? works[0];
+  const hero = works.find((w) => w.title === "Pause ombragée") ?? works[0];
   const selection = [
-    works.find((w) => w.title === "Forme composée I"),
-    works.find((w) => w.title === "L'orchestre"),
     works.find((w) => w.title === "Connexion végétale II"),
+    works.find((w) => w.title === "Le solitaire"),
+    works.find((w) => w.title === "Entrevue"),
   ].filter(Boolean) as typeof works;
 
   return (
