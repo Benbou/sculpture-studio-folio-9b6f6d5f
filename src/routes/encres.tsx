@@ -17,7 +17,7 @@ export default function Encres() {
       />
       <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-20 sm:grid-cols-2 md:grid-cols-3">
         {Array.from({ length: 6 }).map((_, i) => (
-          <ImagePlaceholder key={i} label={`Encres — pièce ${i + 1}`} ratio="3/4" />
+          <ImagePlaceholder key={i} label={`Encres — pièce ${i + 1} — 20 × 20 cm`} ratio="1/1" />
         ))}
       </section>
     </Layout>
