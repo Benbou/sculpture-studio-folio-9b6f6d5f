@@ -50,7 +50,7 @@ export default function Index() {
           <img
             src={hero.image}
             alt={hero.title}
-            className="w-full object-cover"
+            className="w-full bg-white object-contain"
             style={{ aspectRatio: "4/5" }}
           />
           <p className="mt-3 text-xs uppercase tracking-[0.25em] text-muted-foreground">
@@ -74,12 +74,12 @@ export default function Index() {
         <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3">
           {selection.map((w) => (
             <Link to="/galerie" key={w.title} className="group block">
-              <div className="overflow-hidden bg-muted" style={{ aspectRatio: "3/4" }}>
+              <div className="overflow-hidden bg-white" style={{ aspectRatio: "3/4" }}>
                 <img
                   src={w.image}
                   alt={w.title}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               </div>
               <p className="mt-3 font-serif text-lg text-foreground">{w.title}</p>
