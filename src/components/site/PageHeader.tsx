@@ -5,7 +5,7 @@ export function PageHeader({
 }: {
   eyebrow?: string;
   title: string;
-  intro?: string;
+  intro?: React.ReactNode;
 }) {
   return (
     <header className="mx-auto max-w-3xl px-6 pb-12 pt-20 text-center md:pt-28">
@@ -18,9 +18,9 @@ export function PageHeader({
         {title}
       </h1>
       {intro && (
-        <p className="mx-auto mt-6 max-w-2xl text-base font-light leading-relaxed text-muted-foreground">
+        <div className="mx-auto mt-6 max-w-2xl space-y-2 text-base font-light leading-relaxed text-muted-foreground">
           {intro}
-        </p>
+        </div>
       )}
     </header>
   );

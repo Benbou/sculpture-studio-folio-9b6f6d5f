@@ -20,7 +20,12 @@ export default function Encres() {
       <PageHeader
         eyebrow="Série"
         title="Encres"
-        intro="Série d'encres sur papier — format 20 cm × 20 cm."
+        intro={
+          <>
+            <p>Série d'encres sur papier — format 20 cm × 20 cm.</p>
+            <p>«&nbsp;Forêts enchantées&nbsp;»</p>
+          </>
+        }
       />
       <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-20 sm:grid-cols-2 md:grid-cols-3">
         {pieces.map((image, i) => (
