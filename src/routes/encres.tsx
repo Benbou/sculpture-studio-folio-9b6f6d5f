@@ -13,7 +13,7 @@ export default function Encres() {
       <PageHeader
         eyebrow="Série"
         title="Encres"
-        intro="[Texte d'introduction à venir : ce que la série Encres explore — le geste, la trace, le rapport au papier.]"
+        intro="Série d'encres sur papier — format 20 cm × 20 cm."
       />
       <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-20 sm:grid-cols-2 md:grid-cols-3">
         {Array.from({ length: 6 }).map((_, i) => (
