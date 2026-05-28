@@ -38,18 +38,18 @@ export default function Cyanotypes() {
         intro="[Texte d'introduction : un détour photographique au bleu de Prusse, en dialogue avec le volume.]"
       />
       <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-20 sm:grid-cols-2 md:grid-cols-3">
-        {pieces.map((image, i) => (
-          <figure key={image} className="space-y-3">
+        {pieces.map((piece, i) => (
+          <figure key={piece.src} className="space-y-3">
             <div className="overflow-hidden bg-muted" style={{ aspectRatio: "4 / 5" }}>
               <img
-                src={image}
+                src={piece.src}
                 alt={`Cyanotype — n°${i + 1}`}
                 loading="lazy"
                 className="h-full w-full object-cover"
               />
             </div>
             <figcaption className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              Cyanotype — n°{i + 1}
+              {piece.size}
             </figcaption>
           </figure>
         ))}
