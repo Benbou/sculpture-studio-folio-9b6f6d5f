@@ -14,16 +14,16 @@ import cyanotype10 from "../assets/works/cyanotype-10.jpeg";
 
 export default function Cyanotypes() {
   const pieces = [
-    cyanotype1,
-    cyanotype2,
-    cyanotype3,
-    cyanotype4,
-    cyanotype5,
-    cyanotype6,
-    cyanotype7,
-    cyanotype8,
-    cyanotype9,
-    cyanotype10,
+    { src: cyanotype1, size: "24 x 32 cm" },
+    { src: cyanotype2, size: "24 x 32 cm" },
+    { src: cyanotype3, size: "23 x 23 cm" },
+    { src: cyanotype4, size: "24 x 30 cm" },
+    { src: cyanotype5, size: "30 x 40 cm" },
+    { src: cyanotype6, size: "40 x 50 cm" },
+    { src: cyanotype7, size: "40 x 50 cm" },
+    { src: cyanotype8, size: "40 x 50 cm" },
+    { src: cyanotype9, size: "40 x 50 cm" },
+    { src: cyanotype10, size: "40 x 50 cm" },
   ];
 
   return (
