@@ -14,16 +14,16 @@ import cyanotype10 from "../assets/works/cyanotype-10.jpeg";
 
 export default function Cyanotypes() {
   const pieces = [
-    cyanotype1,
-    cyanotype2,
-    cyanotype3,
-    cyanotype4,
-    cyanotype5,
-    cyanotype6,
-    cyanotype7,
-    cyanotype8,
-    cyanotype9,
-    cyanotype10,
+    { src: cyanotype1, size: "24 x 32 cm" },
+    { src: cyanotype2, size: "24 x 32 cm" },
+    { src: cyanotype3, size: "23 x 23 cm" },
+    { src: cyanotype4, size: "24 x 30 cm" },
+    { src: cyanotype5, size: "30 x 40 cm" },
+    { src: cyanotype6, size: "40 x 50 cm" },
+    { src: cyanotype7, size: "40 x 50 cm" },
+    { src: cyanotype8, size: "40 x 50 cm" },
+    { src: cyanotype9, size: "40 x 50 cm" },
+    { src: cyanotype10, size: "40 x 50 cm" },
   ];
 
   return (
@@ -38,18 +38,18 @@ export default function Cyanotypes() {
         intro="[Texte d'introduction : un détour photographique au bleu de Prusse, en dialogue avec le volume.]"
       />
       <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-20 sm:grid-cols-2 md:grid-cols-3">
-        {pieces.map((image, i) => (
-          <figure key={image} className="space-y-3">
+        {pieces.map((piece, i) => (
+          <figure key={piece.src} className="space-y-3">
             <div className="overflow-hidden bg-muted" style={{ aspectRatio: "4 / 5" }}>
               <img
-                src={image}
+                src={piece.src}
                 alt={`Cyanotype — n°${i + 1}`}
                 loading="lazy"
                 className="h-full w-full object-cover"
               />
             </div>
             <figcaption className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              Cyanotype — n°{i + 1}
+              {piece.size}
             </figcaption>
           </figure>
         ))}
