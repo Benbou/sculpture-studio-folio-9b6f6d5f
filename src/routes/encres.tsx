@@ -7,9 +7,13 @@ import encre3 from "../assets/works/encres-3.jpeg";
 import encre4 from "../assets/works/encres-4.jpeg";
 import encre5 from "../assets/works/encres-5.jpeg";
 import encre6 from "../assets/works/encres-6.jpeg";
+import encre7 from "../assets/works/encres-7.jpeg";
+import encre8 from "../assets/works/encres-8.jpeg";
+import encre9 from "../assets/works/encres-9.jpeg";
+import encre10 from "../assets/works/encres-10.jpeg";
 
 export default function Encres() {
-  const pieces = [encre1, encre2, encre3, encre4, encre5, encre6];
+  const pieces = [encre1, encre2, encre3, encre4, encre5, encre6, encre7, encre8, encre9, encre10];
 
   return (
     <Layout>
