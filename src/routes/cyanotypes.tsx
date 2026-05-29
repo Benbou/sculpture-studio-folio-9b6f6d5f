@@ -49,7 +49,8 @@ export default function Cyanotypes() {
               />
             </div>
             <figcaption className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              {piece.size}
+              <span className="block">Cyanotype n°{i + 1}</span>
+              <span className="block text-muted-foreground/70">{piece.size}</span>
             </figcaption>
           </figure>
         ))}
