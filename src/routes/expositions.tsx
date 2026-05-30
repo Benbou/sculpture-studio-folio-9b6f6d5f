@@ -2,7 +2,7 @@ import { Layout } from "../components/site/Layout";
 import { PageHeader } from "../components/site/PageHeader";
 import { Seo } from "../components/site/Seo";
 
-type Event = { title: string; place?: string; dates?: string[] };
+type Event = { title: string; note?: string; place?: string; dates?: string[] };
 type Year = { year: string; events: Event[] };
 
 const data: Year[] = [
@@ -11,6 +11,7 @@ const data: Year[] = [
     events: [
       {
         title: "111 des Arts Lille",
+        note: "Encre sur papier",
         place: "Salle de la Halle au Sucre, 1 rue de l'Entrepôt, Vieux-Lille",
         dates: ["Du samedi 19 au dimanche 27 septembre 2026"],
       },
@@ -130,6 +131,9 @@ export default function Expositions() {
               {y.events.map((e, i) => (
                 <li key={i} className="py-6">
                   <p className="font-serif text-xl text-foreground">{e.title}</p>
+                  {e.note && (
+                    <p className="mt-1 text-sm font-light text-foreground/80">{e.note}</p>
+                  )}
                   {e.place && (
                     <p className="mt-1 text-sm font-light italic text-muted-foreground">
                       {e.place}
