@@ -7,6 +7,16 @@ type Year = { year: string; events: Event[] };
 
 const data: Year[] = [
   {
+    year: "2026",
+    events: [
+      {
+        title: "111 des Arts Lille",
+        place: "Salle de la Halle au Sucre, 1 rue de l'Entrepôt, Vieux-Lille",
+        dates: ["Du samedi 19 au dimanche 27 septembre 2026"],
+      },
+    ],
+  },
+  {
     year: "2025",
     events: [
       {
