@@ -35,7 +35,7 @@ export default function Cyanotypes() {
       <PageHeader
         eyebrow="Sur papier"
         title="Cyanotypes"
-        intro="[Texte d'introduction : un détour photographique au bleu de Prusse, en dialogue avec le volume.]"
+        intro="Détour bleu de cyan en dialogue avec le volume."
       />
       <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-20 sm:grid-cols-2 md:grid-cols-3">
         {pieces.map((piece, i) => (
