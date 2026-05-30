@@ -14,6 +14,11 @@ const data: Year[] = [
         place: "Salle de la Halle au Sucre, 1 rue de l'Entrepôt, Vieux-Lille",
         dates: ["Du samedi 19 au dimanche 27 septembre 2026"],
       },
+      {
+        title: "Portes ouvertes des Ateliers d'Artistes",
+        place: "158 avenue des Saules, 59910 Bondues",
+        dates: ["Vendredi 3 et samedi 4 octobre 2026, 10h–12h / 14h–18h"],
+      },
     ],
   },
   {
