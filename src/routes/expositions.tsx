@@ -11,7 +11,7 @@ const data: Year[] = [
     events: [
       {
         title: "111 des Arts Lille",
-        note: "Encre sur papier",
+        note: "Encres sur papier",
         place: "Salle de la Halle au Sucre, 1 rue de l'Entrepôt, Vieux-Lille",
         dates: ["Du samedi 19 au dimanche 27 septembre 2026"],
       },
