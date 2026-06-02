@@ -45,7 +45,7 @@ export default function Cyanotypes() {
                 src={piece.src}
                 alt={`Cyanotype — n°${i + 1}`}
                 loading="lazy"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover scale-110"
               />
             </div>
             <figcaption className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
