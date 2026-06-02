@@ -69,7 +69,7 @@ export const works: Work[] = [
   { title: "Le solitaire", image: img17, material: "Bronze patin\u00e9", edition: "Bronze patiné 3/8", dim: "7 X 8 X 14 cm", extra: ["Socle bois de teck"] },
   { title: "le Méditant", image: img18, material: "Bronze patin\u00e9", edition: "Bronze patiné 2/8", dim: "11 x 10 x 13 cm", extra: [] },
   { title: "bowline", image: img19, material: "Bronze patin\u00e9", edition: "Bronze patiné 1/8", dim: "42 X 10 X 20 cm", extra: [] },
-  { title: "Entrevue", image: img20, material: "R\u00e9sine", edition: "Pièce unique", dim: "28x7x41cm", extra: ["tige laiton"] },
+  { title: "Entrevue", image: img20, material: "Bronze patin\u00e9", edition: "Pièce unique", dim: "28x7x41cm", extra: ["socle résine", "tige laiton"] },
   { title: "Géométrie variable", image: img21, material: "Bronze patin\u00e9", edition: "Bronze patiné 2/8", dim: "17 X 6 X 35 cm", extra: [] },
   { title: "Forme composée I", image: img22, material: "Bronze poli-miroir", edition: "Bronze poli-miroir 1/8", dim: "17 X18 X 20 cm", extra: ["(2/8 vendu)", "Socle acier"] },
   { title: "Forme compose II", image: img23, material: "Bronze poli-miroir", edition: "Bronze poli-miroir 3/8", dim: "27 X 20 X 12,5 cm", extra: [] },
