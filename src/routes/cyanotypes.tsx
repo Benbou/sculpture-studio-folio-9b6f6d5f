@@ -19,12 +19,12 @@ export default function Cyanotypes() {
     { src: cyanotype3, size: "23 x 23 cm" },
     { src: cyanotype4, size: "24 x 30 cm" },
     { src: cyanotype5, size: "30 x 40 cm" },
-    { src: cyanotype6, size: "40 x 50 cm" },
+    { src: cyanotype6, size: "40 x 50 cm", note: "rehaussé à l'encre" },
     { src: cyanotype7, size: "40 x 50 cm" },
     { src: cyanotype8, size: "40 x 50 cm" },
     { src: cyanotype9, size: "40 x 50 cm" },
     { src: cyanotype10, size: "40 x 50 cm" },
-  ];
+  ] as { src: string; size: string; note?: string }[];
 
   return (
     <Layout>
@@ -51,6 +51,9 @@ export default function Cyanotypes() {
             <figcaption className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
               <span className="block">Cyanotype n°{i + 1}</span>
               <span className="block text-muted-foreground/70">{piece.size}</span>
+              {piece.note && (
+                <span className="block text-muted-foreground/70">{piece.note}</span>
+              )}
             </figcaption>
           </figure>
         ))}
