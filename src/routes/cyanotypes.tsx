@@ -40,12 +40,12 @@ export default function Cyanotypes() {
       <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-20 sm:grid-cols-2 md:grid-cols-3">
         {pieces.map((piece, i) => (
           <figure key={piece.src} className="space-y-3">
-            <div className="overflow-hidden bg-muted" style={{ aspectRatio: "4 / 5" }}>
+            <div className="overflow-hidden bg-muted">
               <img
                 src={piece.src}
                 alt={`Cyanotype — n°${i + 1}`}
                 loading="lazy"
-                className="h-full w-full object-cover"
+                className="h-auto w-full object-contain"
               />
             </div>
             <figcaption className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
