@@ -47,6 +47,9 @@ import img41 from '../assets/works/41-seule.jpg';
 import img42 from '../assets/works/42-maternite.jpg';
 import img43 from '../assets/works/43-premier-soleil.jpg';
 import img44 from '../assets/works/44-la-consolante.jpg';
+import img45 from '../assets/works/45-la-pyramide-des-ages.png';
+import img46 from '../assets/works/46-reverie.png';
+import img47 from '../assets/works/47-chasseur-de-reves.jpeg';
 
 export const works: Work[] = [
   { title: "Woodman", image: img00, material: "Bronze patin\u00e9", edition: "Bronze patiné 1/8", dim: "13,5 x 10 x 32 cm", extra: [] },
@@ -94,6 +97,9 @@ export const works: Work[] = [
   { title: "Maternité", image: img42, material: "Bronze patin\u00e9", edition: "Bronze patiné 2/8", dim: "15,5 X 17 X 18 cm", extra: [] },
   { title: "Premier soleil", image: img43, material: "Bronze patin\u00e9", edition: "Bronze patiné 2/8", dim: "22 X 22 X 24cm", extra: [] },
   { title: "La consolante", image: img44, material: "Bronze patin\u00e9", edition: "Bronze patiné 1/8", dim: "21 X 21 X 23 cm", extra: [] },
+  { title: "La pyramide des âges", image: img45, material: "Bronze patin\u00e9", edition: "Bronze patiné 1/8", dim: "18 x 14 x 38 cm", extra: [] },
+  { title: "Rêverie", image: img46, material: "Bronze patin\u00e9", edition: "Pièce unique", dim: "15 x 10 x 9 cm", extra: ["Socle acier"] },
+  { title: "Chasseur de rêves", image: img47, material: "Bronze patin\u00e9", edition: "Bronze patiné 4/8", dim: "30 x 33 x 6 cm", extra: ["Sur socle acier 31 x 16 x 152 cm", "Hauteur totale 152 cm"] },
 ];
 
 export const materials: Material[] = ['Bronze patiné', 'Bronze poli-miroir', 'Résine', 'Autres'];
