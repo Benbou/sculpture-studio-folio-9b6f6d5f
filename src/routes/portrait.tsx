@@ -46,8 +46,7 @@ export default function Portrait() {
           <p>
             Animée par les matières, leurs propriétés et leurs fonctionnements,
             les cyanotypes et les encres sur papier sont venues enrichir son
-            travail en lui conférant, comme en sculpture, un pouvoir structural
-            et une interaction avec la matière.
+            travail en lui conférant, comme en sculpture, un pouvoir structural.
           </p>
           <blockquote className="border-l-2 border-foreground/40 pl-6 font-serif text-lg italic text-foreground">
             « Le bronze est une matière vivante,
