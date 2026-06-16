@@ -39,14 +39,15 @@ export default function Portrait() {
           </p>
           <p>
             À travers ses sculptures, Christine nous parle de son rapport au
-            monde. Ses sujets, axés sur la géométrie et la poésie, ne sont que
-            prétexte à faire fonctionner les formes entre elles.
+            monde. Ses multiples sources d'inspirations, géométrie, nature et
+            poésie ne sont que prétexte à faire fonctionner les formes entre
+            elles.
           </p>
           <p>
-            Christine n'est pas intéressée par la vraisemblance illusoire avec
-            le réel mais plutôt par la présence du vivant et la résonance que
-            « l'objet » peut avoir sur l'esprit, nous permettant d'aller au-delà
-            de ce que l'on voit.
+            Animée par les matières, leurs propriétés et leurs fonctionnements,
+            les cyanotypes et les encres sur papier sont venues enrichir son
+            travail en lui conférant, comme en sculpture, un pouvoir structural
+            interaction avec la matière.
           </p>
           <p className="font-serif text-xl italic text-foreground">
             « La vision n'est pas que rétinienne ! »
