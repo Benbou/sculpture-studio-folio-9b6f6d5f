@@ -116,8 +116,7 @@ export default function Index() {
 
       <section className="mx-auto max-w-3xl px-6 pb-24 text-center">
         <p className="font-serif text-2xl italic leading-relaxed text-foreground md:text-3xl">
-          « Le bronze est une matière vivante, jour après jour, au rythme des
-          saisons, le temps y laissera ses traces… comme il fait dans nos vies. »
+          « La vision n'est pas que rétinienne. »
         </p>
         <p className="mt-4 text-xs uppercase tracking-[0.3em] text-muted-foreground">
           — Christine Bouquet
