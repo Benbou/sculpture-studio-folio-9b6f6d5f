@@ -47,15 +47,7 @@ export default function Portrait() {
             Animée par les matières, leurs propriétés et leurs fonctionnements,
             les cyanotypes et les encres sur papier sont venues enrichir son
             travail en lui conférant, comme en sculpture, un pouvoir structural
-            interaction avec la matière.
-          </p>
-          <p className="font-serif text-xl italic text-foreground">
-            « La vision n'est pas que rétinienne ! »
-          </p>
-          <p>
-            Elle aime à se laisser guider par la nature. Ne pas la copier, mais
-            l'observer pour s'imprégner de son fonctionnement et tenter de
-            donner aux formes le pouvoir de dire.
+            et une interaction avec la matière.
           </p>
           <blockquote className="border-l-2 border-foreground/40 pl-6 font-serif text-lg italic text-foreground">
             « Le bronze est une matière vivante,
