@@ -2,14 +2,32 @@ import { Link } from "react-router-dom";
 import { Layout } from "../components/site/Layout";
 import { Seo } from "../components/site/Seo";
 import { works } from "../data/works";
+import cyanotype3 from "../assets/works/cyanotype-3.jpeg";
+import encre1 from "../assets/works/encres-1.jpeg";
 
 export default function Index() {
   const hero = works.find((w) => w.title === "Pause ombragée") ?? works[0];
+  const poidsDesPas = works.find((w) => w.title === "Le poids des pas");
   const selection = [
-    works.find((w) => w.title === "Connexion végétale II"),
-    works.find((w) => w.title === "Le solitaire"),
-    works.find((w) => w.title === "Entrevue"),
-  ].filter(Boolean) as typeof works;
+    poidsDesPas && {
+      title: poidsDesPas.title,
+      image: poidsDesPas.image,
+      caption: poidsDesPas.material,
+      to: "/galerie",
+    },
+    {
+      title: "Cyanotype — pièce 3",
+      image: cyanotype3,
+      caption: "Cyanotype",
+      to: "/cyanotypes",
+    },
+    {
+      title: "Encres — pièce 1",
+      image: encre1,
+      caption: "Encre sur papier",
+      to: "/encres",
+    },
+  ].filter(Boolean) as { title: string; image: string; caption: string; to: string }[];
 
   return (
     <Layout>
@@ -28,8 +46,12 @@ export default function Index() {
             au bronze.
           </h1>
           <p className="mt-8 max-w-md text-base font-light leading-relaxed text-muted-foreground">
-            Christine Bouquet sculpte la présence du vivant. Bronzes patinés,
-            poli-miroir et résines, réalisés à la cire perdue dans son atelier.
+            Christine sculpte dans la terre la présence du vivant et réalise
+            ensuite des bronzes à la cire perdue. Animée par les matières,
+            leurs propriétés et leur fonctionnement, les cyanotypes et les
+            encres sur papier sont deux autres fenêtres de création de son
+            travail qui repose essentiellement sur l'interaction avec les
+            matières.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
@@ -73,7 +95,7 @@ export default function Index() {
         </div>
         <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3">
           {selection.map((w) => (
-            <Link to="/galerie" key={w.title} className="group block">
+            <Link to={w.to} key={w.title} className="group block">
               <div className="overflow-hidden bg-white" style={{ aspectRatio: "3/4" }}>
                 <img
                   src={w.image}
@@ -84,7 +106,7 @@ export default function Index() {
               </div>
               <p className="mt-3 font-serif text-lg text-foreground">{w.title}</p>
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                {w.material}
+                {w.caption}
               </p>
             </Link>
           ))}
