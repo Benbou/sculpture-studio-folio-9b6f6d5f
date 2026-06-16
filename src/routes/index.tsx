@@ -47,11 +47,12 @@ export default function Index() {
           </h1>
           <p className="mt-8 max-w-md text-base font-light leading-relaxed text-muted-foreground">
             Christine sculpte dans la terre la présence du vivant et réalise
-            ensuite des bronzes à la cire perdue. Animée par les matières,
-            leurs propriétés et leur fonctionnement, les cyanotypes et les
-            encres sur papier sont deux autres fenêtres de création de son
-            travail qui repose essentiellement sur l'interaction avec les
-            matières.
+            ensuite des bronzes à la cire perdue.
+            <br />
+            <br />
+            Les cyanotypes et les encres sur papier sont deux autres fenêtres
+            de création de son travail qui repose essentiellement sur
+            l'interaction avec les matières.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
