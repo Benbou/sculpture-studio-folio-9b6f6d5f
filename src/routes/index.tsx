@@ -32,13 +32,13 @@ export default function Index() {
   return (
     <Layout>
       <Seo
-        title="Christine Bouquet — Sculptrice"
-        description="Christine Bouquet, sculptrice et fondeur d'art. Bronzes patinés, bronze poli-miroir et résine. Atelier à Bondues, près de Lille."
+        title="Christine Bouquet — Sculpteure"
+        description="Christine Bouquet, sculpteure et fondeur d'art. Bronzes patinés, bronze poli-miroir et résine. Atelier à Bondues, près de Lille."
       />
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
         <div>
           <p className="mb-6 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            Sculptrice — Bondues, France
+            Sculpteure — Bondues, France
           </p>
           <h1 className="font-serif text-5xl font-light leading-[1.05] text-foreground md:text-7xl">
             De la terre
