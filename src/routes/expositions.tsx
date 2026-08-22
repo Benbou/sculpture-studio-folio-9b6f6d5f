@@ -118,7 +118,7 @@ export default function Expositions() {
     <Layout>
       <Seo
         title="Expositions — Christine Bouquet"
-        description="Expositions passées et à venir de Christine Bouquet, sculptrice (Lille, Paris, Belgique)."
+        description="Expositions passées et à venir de Christine Bouquet, sculpteure (Lille, Paris, Belgique)."
       />
       <PageHeader eyebrow="Agenda" title="Expositions" />
       <section className="mx-auto max-w-3xl space-y-16 px-6 pb-20">

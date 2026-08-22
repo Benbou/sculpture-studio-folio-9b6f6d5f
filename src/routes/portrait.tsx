@@ -8,15 +8,15 @@ export default function Portrait() {
   return (
     <Layout>
       <Seo
-        title="Portrait — Christine Bouquet, sculptrice"
-        description="Née à Paris en 1960, Christine Bouquet vit et travaille à Bondues près de Lille. Sculptrice et fondeur d'art."
+        title="Portrait — Christine Bouquet, sculpteure"
+        description="Née à Paris en 1960, Christine Bouquet vit et travaille à Bondues près de Lille. Sculpteure et fondeur d'art."
       />
       <PageHeader eyebrow="Portrait" title="Christine Bouquet" />
       <section className="mx-auto grid max-w-5xl gap-12 px-6 pb-16 md:grid-cols-[1fr_1.4fr] md:gap-16">
         <div>
           <img
             src={portrait}
-            alt="Christine Bouquet, sculptrice"
+            alt="Christine Bouquet, sculpteure"
             className="w-full object-cover"
             style={{ aspectRatio: "1/1" }}
           />

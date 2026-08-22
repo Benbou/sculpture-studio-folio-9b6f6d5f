@@ -8,7 +8,7 @@ export default function Contact() {
     <Layout>
       <Seo
         title="Contact — Christine Bouquet"
-        description="Contacter Christine Bouquet, sculptrice à Bondues, près de Lille."
+        description="Contacter Christine Bouquet, sculpteure à Bondues, près de Lille."
       />
       <PageHeader
         eyebrow="Écrire"
