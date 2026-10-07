@@ -4,6 +4,19 @@ import { PageHeader } from "../components/site/PageHeader";
 import { Seo } from "../components/site/Seo";
 import { works, materials, type Material, type Work } from "../data/works";
 
+function SoldLabel() {
+  return (
+    <span
+      aria-label="Vendu"
+      className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden"
+    >
+      <span className="-rotate-[18deg] border border-foreground/25 bg-background/60 px-6 py-2 pl-[calc(1.5rem+0.3em)] font-serif text-2xl font-light uppercase tracking-[0.3em] text-foreground/80 md:text-4xl">
+        Vendu
+      </span>
+    </span>
+  );
+}
+
 export default function Galerie() {
   const [filter, setFilter] = useState<Material | "Tous">("Tous");
   const [active, setActive] = useState<Work | null>(null);
@@ -44,13 +57,14 @@ export default function Galerie() {
               onClick={() => setActive(w)}
               className="group mb-12 block w-full break-inside-avoid text-left"
             >
-              <div className="overflow-hidden bg-muted">
+              <div className="relative overflow-hidden bg-muted">
                 <img
                   src={w.image}
                   alt={w.title}
                   loading="lazy"
                   className="h-auto w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]"
                 />
+                {w.sold && <SoldLabel />}
               </div>
               <div className="mt-3">
                 <p className="font-serif text-lg text-foreground">{w.title}</p>
@@ -73,11 +87,14 @@ export default function Galerie() {
             className="grid max-h-[90vh] w-full max-w-5xl gap-6 overflow-auto bg-background p-6 md:grid-cols-[1.4fr_1fr] md:p-10"
             onClick={(e) => e.stopPropagation()}
           >
-            <img
-              src={active.image}
-              alt={active.title}
-              className="h-auto w-full object-contain"
-            />
+            <div className="relative">
+              <img
+                src={active.image}
+                alt={active.title}
+                className="h-auto w-full object-contain"
+              />
+              {active.sold && <SoldLabel />}
+            </div>
             <div className="flex flex-col justify-between">
               <div>
                 <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">

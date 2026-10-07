@@ -1,6 +1,6 @@
 // Auto-generated from christinebouquet.com — works metadata
 export type Material = 'Bronze patiné' | 'Bronze poli-miroir' | 'Résine' | 'Autres';
-export type Work = { title: string; image: string; material: Material; edition?: string; dim?: string; extra?: string[] };
+export type Work = { title: string; image: string; material: Material; edition?: string; dim?: string; extra?: string[]; sold?: boolean };
 
 import img00 from '../assets/works/00-woodman.jpeg';
 import img01 from '../assets/works/01-l-ermite.jpeg';
@@ -98,7 +98,7 @@ export const works: Work[] = [
   { title: "Premier soleil", image: img43, material: "Bronze patin\u00e9", edition: "Bronze patiné 2/8", dim: "22 X 22 X 24cm", extra: [] },
   { title: "La consolante", image: img44, material: "Bronze patin\u00e9", edition: "Bronze patiné 1/8", dim: "21 X 21 X 23 cm", extra: [] },
   { title: "La pyramide des âges", image: img45, material: "Bronze patin\u00e9", edition: "Bronze patiné 1/8", dim: "18 x 14 x 38 cm", extra: [] },
-  { title: "Rêverie", image: img46, material: "Bronze patin\u00e9", edition: "Pièce unique", dim: "15 x 10 x 9 cm", extra: ["Socle acier"] },
+  { title: "Rêverie", image: img46, material: "Bronze patin\u00e9", edition: "Pièce unique", dim: "15 x 10 x 9 cm", extra: ["Socle acier"], sold: true },
   { title: "Chasseur de rêves", image: img47, material: "Bronze patin\u00e9", edition: "Bronze patiné 4/8", dim: "30 x 33 x 6 cm", extra: ["Sur socle acier 31 x 16 x 152 cm", "Hauteur totale 152 cm"] },
 ];
 
