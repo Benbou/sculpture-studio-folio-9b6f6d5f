@@ -10,7 +10,7 @@ function SoldLabel() {
       aria-label="Vendu"
       className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden"
     >
-      <span className="-rotate-[18deg] border border-foreground/30 bg-background/75 px-6 py-2 pl-[calc(1.5rem+0.3em)] font-serif text-2xl font-light uppercase tracking-[0.3em] text-foreground/85 md:text-4xl">
+      <span className="-rotate-[18deg] border border-foreground/25 bg-background/60 px-6 py-2 pl-[calc(1.5rem+0.3em)] font-serif text-2xl font-light uppercase tracking-[0.3em] text-foreground/80 md:text-4xl">
         Vendu
       </span>
     </span>
